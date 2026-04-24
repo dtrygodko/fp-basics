@@ -29,6 +29,9 @@ let main() =
     printfn "Pair: %s = %d" message number
 
 let add a b = a + b
+
+let addTen a = add a 10
+
 let add (a, b) = a + b
 
 type User = { Name: string }

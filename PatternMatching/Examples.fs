@@ -13,7 +13,6 @@ let area shape =
     | Rectangle (w, h) when w > 0.0 && h > 0.0 -> w * h
     | Triangle (b, h) when b > 0.0 && h > 0.0 -> b * h / 2.0
     | Point -> 0.0
-    | _ -> failwith "Некоректні параметри форми"
 
 let describe = function
     | Circle radius -> sprintf "Коло з радіусом %.2f" radius

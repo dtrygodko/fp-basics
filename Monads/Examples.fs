@@ -12,8 +12,9 @@ let (>>=) m f = Option.bind f m
 let (<!>) f m = Option.map f m
 
 let optionExample () =
-    let result =
+    let result: int option =
         Some 10
+        >>= tryDivide 0
         >>= tryDivide 2
         >>= tryDivide 5
     match result with

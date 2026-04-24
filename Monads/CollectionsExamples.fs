@@ -15,6 +15,7 @@ let pairsExample () =
             |> List.map (fun y -> (x, y))
         )
     printfn "Пари (x, y) де x < y: %A" pairs
+    // Очікуваний результат: [(1, 2); (1, 3); (1, 4); (1, 5); (2, 3); (2, 4); (2, 5); (3, 4); (3, 5); (4, 5)]
 
 // Те ж саме з використанням bind
 let pairsWithBindExample () =
@@ -25,6 +26,7 @@ let pairsWithBindExample () =
             |> List.filter (fun y -> x < y)
             |> List.map (fun y -> (x, y))
     printfn "Пари з bind: %A" pairs
+    // Очікуваний результат: [(1, 2); (1, 3); (1, 4); (1, 5); (2, 3); (2, 4); (2, 5); (3, 4); (3, 5); (4, 5)]
 
 // Приклад 2: Генерація комбінацій
 let colors = ["червоний"; "зелений"; "синій"]
@@ -38,6 +40,7 @@ let combinationsExample () =
             >>= fun size ->
                 [sprintf "%s %s" color size]
     printfn "Комбінації: %A" combinations
+    // Очікуваний результат: ["червоний S"; "червоний M"; "червоний L"; "зелений S"; "зелений M"; "зелений L"; "синій S"; "синій M"; "синій L"]
 
 // Приклад 3: Фільтрація та трансформація вкладених колекцій
 let nestedLists = [[1; 2]; [3; 4; 5]; [6]]
@@ -50,6 +53,7 @@ let flattenAndFilterExample () =
             |> List.filter (fun x -> x % 2 = 0)
             |> List.map (fun x -> x * 10)
     printfn "Відфільтровані та помножені парні числа: %A" result
+    // Очікуваний результат: [20; 40; 60]
 
 // Приклад 4: Ієрархічна структура (дерево)
 type Tree<'T> =
@@ -66,6 +70,7 @@ let rec flattenTree tree =
 let treeFlattenExample () =
     let flattened = flattenTree tree
     printfn "Розплющене дерево: %A" flattened
+    // Очікуваний результат: [1; 2; 3; 4]
 
 // Приклад 5: Асинхронна обробка колекцій
 let asyncWork x = async {
@@ -81,6 +86,7 @@ let asyncCollectionsExample () =
             asyncWork x
             |> Async.RunSynchronously
     printfn "Асинхронні фактори: %A" asyncResults
+    // Очікуваний результат: [1; 1; 2; 1; 3; 1; 2; 4; 1; 5]
 
 let runCollectionsExamples () =
     pairsExample()
